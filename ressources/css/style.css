@@ -1,0 +1,123 @@
+/*thème couleurs* 
+Dark Electric Blue #586F7C
+Charcoal #2F4550
+Powder Blue # B8DBD9*/
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url("../Images/G.jpg");
+    background-size: cover;
+}
+
+header {
+    height: 55vh;
+    background: #aa3096;
+    border-radius: 15px;
+}
+
+#container {
+    width: 50vw;
+    margin: auto;
+    border-radius: 15px;
+}
+
+#bandeauBouton {
+    height: 25vh;
+    background: #dd3a08;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+}
+
+#bandeauReponse {
+    min-height: 70vh;
+    height: fit-content;
+    background: #021f80;
+    border-radius: 15px;
+}
+
+#reponseFilms {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 50vw;
+    margin: auto;
+    background: #586F7C;
+    border-radius: 15px;
+}
+
+#reponseSpecies {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 50vw;
+    margin: auto;
+    background: #586F7C;
+    border-radius: 15px;
+}
+
+#reponseVehicle {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 50vw;
+    margin: auto;
+    background: #586F7C;
+    border-radius: 15px;
+}
+
+button {
+    height: 20%;
+    border-radius: 15px;
+    width: 30%;
+}
+
+
+/* ======================= CAROUSEL =========================*/
+
+#carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50%;
+}
+
+.img {
+    height: auto;
+    width: 32rem;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    -webkit-transform: scale(0.6) translateY(-2rem);
+    transform: scale(0.6) translateY(-2rem);
+    opacity: 0;
+    cursor: pointer;
+    pointer-events: none;
+    background: #2e5266;
+    background: linear-gradient(to top, #2e5266, #6e8898);
+    transition: 1s;
+}
+
+.img.active {
+    z-index: 3;
+    -webkit-transform: scale(1) translateY(0) translateX(0);
+    transform: scale(1) translateY(0) translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+    transition: 1s;
+}
+
+.img.prev,
+.img.next {
+    z-index: 2;
+    -webkit-transform: scale(0.8) translateY(-1rem) translateX(0);
+    transform: scale(0.8) translateY(-1rem) translateX(0);
+    opacity: 0.6;
+    pointer-events: auto;
+    transition: 1s;
+}
