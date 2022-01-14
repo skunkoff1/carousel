@@ -49,11 +49,18 @@ button {
     text-align: left;
 }
 
+.imgSlide {
+    width: 300px;
+    height: auto;
+    float: left;
+}
+
 
 /*=================== CAROUSEL TYPE MANEGE ==================*/
 
 #carFigJs,
-#carFigJq {
+#carFigJq,
+#carFigJs2 {
     position: relative;
     display: flex;
     align-items: center;
@@ -61,14 +68,9 @@ button {
     margin-left: 50%;
 }
 
-.imgSlide {
-    width: 300px;
-    height: auto;
-    float: left;
-}
-
 .imgJq,
-.imgJs {
+.imgJs,
+.imgJs2 {
     height: auto;
     width: 32rem;
     padding: 20px;
@@ -85,7 +87,8 @@ button {
 }
 
 .imgJq.active,
-.imgJs.active {
+.imgJs.active,
+.imgJs2.active {
     z-index: 3;
     -webkit-transform: scale(1) translateY(0) translateX(0);
     transform: scale(1) translateY(0) translateX(0);
@@ -97,7 +100,9 @@ button {
 .imgJq.prev,
 .imgJq.next,
 .imgJs.prev,
-.imgJs.next {
+.imgJs.next,
+.imgJs2.prev,
+.imgJs2.next {
     z-index: 2;
     -webkit-transform: scale(0.8) translateY(-1rem) translateX(0);
     transform: scale(0.8) translateY(-1rem) translateX(0);

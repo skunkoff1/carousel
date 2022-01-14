@@ -83,30 +83,30 @@ function slideJs(move) {
 /*=============== CAROUSEL TYPE MANEGE JQUERY ================*/
 /*============================================================*/
 
-$num = $('.imgJq').length;
+$numJq = $('.imgJq').length;
 
 // On crée une variable pair et impair 
 // qui vont nous servir à déterminer le milieu du carroussel
-$even = $num / 2;
-$odd = ($num + 1) / 2;
+$evenJq = $numJq / 2;
+$oddJq = ($numJq + 1) / 2;
 
 
 // on détermine l'image central du carousel,
 // on lui applique la classe active pour lui donner un css particulier
 // la propriété nth-child(x) permet de parcourir et selectionner un enfant en particulier
 // nth-child(1) équivaut à la première image
-// et donc nth-child(even ou odd) équivaut à l'image centrale
+// et donc nth-child(evenJq ou oddJq) équivaut à l'image centrale
 // note bien la concaténation afin d'utiliser la variable
-if ($num % 2 == 0) {
-    $('.imgJq:nth-child(' + $even + ')').addClass('active');
+if ($numJq % 2 == 0) {
+    $('.imgJq:nth-child(' + $evenJq + ')').addClass('active');
     // on aplique à l'enfant précedent une classe 'prev'
     // JQuery s'avère très pratique puisque la fonction prev() et next() n'existe pas en natif, il faut "gruger" (cf voir plus bas)
-    $('.imgJq:nth-child(' + $even + ')').prev().addClass('prev');
-    $('.imgJq:nth-child(' + $even + ')').next().addClass('next');
+    $('.imgJq:nth-child(' + $evenJq + ')').prev().addClass('prev');
+    $('.imgJq:nth-child(' + $evenJq + ')').next().addClass('next');
 } else {
-    $('.imgJq:nth-child(' + $odd + ')').addClass('active');
-    $('.imgJq:nth-child(' + $odd + ')').prev().addClass('prev');
-    $('.imgJq:nth-child(' + $odd + ')').next().addClass('next');
+    $('.imgJq:nth-child(' + $oddJq + ')').addClass('active');
+    $('.imgJq:nth-child(' + $oddJq + ')').prev().addClass('prev');
+    $('.imgJq:nth-child(' + $oddJq + ')').next().addClass('next');
 }
 
 // on applique un écouteur d'évenements à toutes nos images
@@ -146,5 +146,142 @@ $('.imgJq').click(function() {
 });
 
 /*============================================================*/
-/*============= CAROUSEL TYPE MANEGE JAVASCRIPT ==============*/
+/*======== CAROUSEL TYPE MANEGE JAVASCRIPT EN DUR ============*/
 /*============================================================*/
+
+let imgTab = document.querySelectorAll(".imgJs");
+let numJs = imgTab.length;
+let even = numJs / 2;
+let odd = (numJs + 1) / 2;
+let current = 0;
+let width = 0;
+let left = 0;
+let carouselJs = document.getElementById('carFigJs');
+
+if (numJs % 2 == 0) {
+    document.querySelector('.imgJs:nth-child(' + even + ')').className = "imgJs active";
+    document.querySelector('.imgJs:nth-child(' + (even + 1) + ')').className = "imgJs next";
+    document.querySelector('.imgJs:nth-child(' + (even - 1) + ')').className = "imgJs prev";
+    current = even;
+} else {
+    document.querySelector('.imgJs:nth-child(' + odd + ')').className = "imgJs active";
+    document.querySelector('.imgJs:nth-child(' + (odd + 1) + ')').className = "imgJs next";
+    document.querySelector('.imgJs:nth-child(' + (odd - 1) + ')').className = "imgJs prev";
+    current = odd;
+}
+
+function move(img) {
+    if (current > 0 && img.className.includes('prev')) {
+        let active = document.querySelector('.imgJs.active')
+
+        // J'ai recréé l'animation de transition
+        // avec une boucle for qui bouge progressivement le caroussel
+
+        for (let i = left; i < left + active.offsetWidth; i++) {
+            setTimeout(() => {
+                width = i;
+                carouselJs.style.left = width + 'px';
+                if (i == left + 552 - 1) {
+                    left = width;
+                }
+            }, i - left);
+        }
+
+
+        if (document.querySelector('.imgJs.next')) {
+            document.querySelector('.imgJs.next').className = 'imgJs';
+        }
+        active.className = "imgJs next"
+
+        document.querySelector('.imgJs.prev').className = 'imgJs active';
+        if (document.querySelector('.imgJs:nth-child(' + (current - 2) + ')')) {
+            document.querySelector('.imgJs:nth-child(' + (current - 2) + ')').className = "imgJs prev";
+        }
+        current -= 1;
+    } else if (current < numJs && img.className.includes('next')) {
+        let active = document.querySelector('.imgJs.active')
+
+        // J'ai recréé l'animation de transition
+        // avec une boucle for qui bouge progressivement le caroussel
+
+        for (let i = -left; i < -left + active.offsetWidth; i++) {
+            setTimeout(() => {
+                width = -i;
+                carouselJs.style.left = width + 'px';
+                if (i == -left + 552 - 1) {
+                    left = width;
+                }
+            }, i + left);
+        }
+
+        if (document.querySelector('.imgJs.prev')) {
+            document.querySelector('.imgJs.prev').className = 'imgJs';
+        }
+        active.className = "imgJs prev"
+
+        document.querySelector('.imgJs.next').className = 'imgJs active';
+
+        if (document.querySelector('.imgJs:nth-child(' + (current + 2) + ')')) {
+            document.querySelector('.imgJs:nth-child(' + (current + 2) + ')').className = "imgJs next";
+        }
+        current += 1;
+    }
+};
+
+/*============================================================*/
+/*======== CAROUSEL TYPE MANEGE JAVASCRIPT EN DUR ============*/
+/*============================================================*/
+
+let imgTab2 = document.querySelectorAll(".imgJs2");
+let num2 = imgTab.length;
+let even2 = num2 / 2;
+let odd2 = (num2 + 1) / 2;
+
+if (num2 % 2 == 0) {
+    document
+        .querySelector(".imgJs2:nth-child(" + even2 + ")")
+        .classList.add("active");
+    document
+        .querySelector(".imgJs2:nth-child(" + (even2 + 1) + ")")
+        .classList.add("next");
+    document
+        .querySelector(".imgJs2:nth-child(" + (even2 - 1) + ")")
+        .classList.add("prev");
+} else {
+    document.querySelector(".imgJs2:nth-child(" + odd2 + ")").classList.add("active");
+    document
+        .querySelector(".imgJs2:nth-child(" + (odd2 + 1) + ")")
+        .classList.add("next");
+    document
+        .querySelector(".imgJs2:nth-child(" + (odd2 - 1) + ")")
+        .classList.add("prev");
+}
+
+for (const img of imgTab2) {
+    img.onclick = e => {
+        const active = document.querySelector(".imgJs2.active");
+        const prev = document.querySelector(".imgJs2.prev");
+        const next = document.querySelector(".imgJs2.next");
+        const size = active.offsetWidth;
+        const figure = document.getElementById("carFigJs2");
+
+        if (!figure.style.left) figure.style.left = "0px";
+
+        const left = parseInt(figure.style.left);
+        if (e.target.classList.contains("next")) {
+            figure.style.left = `${left - size}px`;
+        } else if (e.target.classList.contains("prev")) {
+            figure.style.left = `${left + size}px`;
+        }
+
+        if (next) next.classList.remove("next");
+        if (prev) prev.classList.remove("prev");
+        active.classList.remove("active");
+
+        e.target.classList.add("active");
+        if (e.target.previousElementSibling)
+            e.target.previousElementSibling.classList.add("prev");
+        if (e.target.nextElementSibling)
+            e.target.nextElementSibling.classList.add("next");
+    };
+}
