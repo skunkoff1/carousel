@@ -229,7 +229,7 @@ function move(img) {
 };
 
 /*============================================================*/
-/*======== CAROUSEL TYPE MANEGE JAVASCRIPT EN DUR ============*/
+/*======== CAROUSEL TYPE MANEGE JAVASCRIPT VIA JS ============*/
 /*============================================================*/
 
 let imgTab2 = document.querySelectorAll(".imgJs2");
