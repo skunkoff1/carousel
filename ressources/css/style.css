@@ -1,85 +1,66 @@
-/*thème couleurs* 
-Dark Electric Blue #586F7C
-Charcoal #2F4550
-Powder Blue # B8DBD9*/
-
 body,
 html {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    background-image: url("../Images/G.jpg");
-    background-size: cover;
 }
 
-header {
-    height: 55vh;
-    background: #aa3096;
-    border-radius: 15px;
-}
 
-#container {
-    width: 50vw;
+/*================ CAROUSEL SLIDE ===================*/
+
+#header {
+    width: 1200px;
     margin: auto;
-    border-radius: 15px;
-}
-
-#bandeauBouton {
-    height: 25vh;
-    background: #dd3a08;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 15px;
-}
-
-#bandeauReponse {
-    min-height: 70vh;
+    flex-wrap: wrap;
     height: fit-content;
-    background: #021f80;
-    border-radius: 15px;
 }
 
-#reponseFilms {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    width: 50vw;
-    margin: auto;
-    background: #586F7C;
-    border-radius: 15px;
-}
-
-#reponseSpecies {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    width: 50vw;
-    margin: auto;
-    background: #586F7C;
-    border-radius: 15px;
-}
-
-#reponseVehicle {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    width: 50vw;
-    margin: auto;
-    background: #586F7C;
-    border-radius: 15px;
+h1 {
+    text-align: center;
 }
 
 button {
-    height: 20%;
-    border-radius: 15px;
-    width: 30%;
+    height: 30px;
+    width: 30px;
+}
+
+#carSlideJs,
+#carSlideJq {
+    overflow: hidden;
+    width: 300px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+#buttonRightJq,
+#buttonRightJs {
+    position: relative;
+    left: 70%;
+}
+
+#figureJq,
+#figureJs {
+    position: relative;
+    width: 3000px;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    text-align: left;
+}
+
+.imgSlide {
+    width: 300px;
+    height: auto;
+    float: left;
 }
 
 
-/* ======================= CAROUSEL =========================*/
+/*=================== CAROUSEL TYPE MANEGE ==================*/
 
-#carousel {
+#carFigJs,
+#carFigJq,
+#carFigJs2 {
     position: relative;
     display: flex;
     align-items: center;
@@ -87,7 +68,9 @@ button {
     margin-left: 50%;
 }
 
-.img {
+.imgJq,
+.imgJs,
+.imgJs2 {
     height: auto;
     width: 32rem;
     padding: 20px;
@@ -103,7 +86,9 @@ button {
     transition: 1s;
 }
 
-.img.active {
+.imgJq.active,
+.imgJs.active,
+.imgJs2.active {
     z-index: 3;
     -webkit-transform: scale(1) translateY(0) translateX(0);
     transform: scale(1) translateY(0) translateX(0);
@@ -112,8 +97,12 @@ button {
     transition: 1s;
 }
 
-.img.prev,
-.img.next {
+.imgJq.prev,
+.imgJq.next,
+.imgJs.prev,
+.imgJs.next,
+.imgJs2.prev,
+.imgJs2.next {
     z-index: 2;
     -webkit-transform: scale(0.8) translateY(-1rem) translateX(0);
     transform: scale(0.8) translateY(-1rem) translateX(0);
